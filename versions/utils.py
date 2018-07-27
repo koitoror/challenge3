@@ -57,7 +57,7 @@ def send_email(recipients, hash_key, username, path):
     """
     msg = Message(
         'Verify Account',
-        sender='victormutaijambo@gmail.com',
+        sender='danielkamarjambo@gmail.com',
         recipients=recipients
     )
     msg.html = render_template(
@@ -70,7 +70,7 @@ def send_forgot_password_email(recipients, new_password):
     """
     msg = Message(
         'Forgot Password',
-        sender='victormutaijambo@gmail.com',
+        sender='danielkamarjambo@gmail.com',
         recipients=recipients
     )
     msg.html = render_template(

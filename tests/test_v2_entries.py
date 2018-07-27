@@ -14,13 +14,13 @@ class TestEntryV2(unittest.TestCase):
         }
         self.new_user_info = {
             "username": "oliver",
-            "fullname": "oliver mutai",
-            "email": "oliver.mutai@maseno.com",
-            "password": "password1234"
+            "fullname": "oliver kamar",
+            "email": "oliver.kamar@maseno.com",
+            "password": "kamarster@gmail.com"
         }
         self.user_login_info = {
             "username": "oliver",
-            "password": "password1234"
+            "password": "kamarster@gmail.com"
         }
         self.new_diary_info = {
             "name": "Crown paints",

@@ -1,7 +1,0 @@
-{
-  "tests/test_v2_auth.py": true,
-  "tests/test_v2_diary.py": true,
-  "tests/test_v2_entries.py": true,
-  "tests/test_v2_notification.py": true,
-  "tests/test_v2_user.py": true
-}

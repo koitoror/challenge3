@@ -12,17 +12,17 @@ class TestAuth(unittest.TestCase):
         app.config.from_object('config.Testing')
         self.app_client = app.test_client()
         self.new_user_info = {
-            'username': 'victorjambo',
-            'fullname': 'victor jambo',
-            'email': 'victor.mutai@gmail.com',
-            'password': 'password1234'
+            'username': 'koitoror',
+            'fullname': 'daniel kamar',
+            'email': 'kamarster@gmail.com',
+            'password': 'kamarster@gmail.com'
         }
         self.new_user_login = {
-            'username': 'victorjambo',
-            'password': 'password1234'
+            'username': 'koitoror',
+            'password': 'kamarster@gmail.com'
         }
         self.new_password = {
-            "old_password": "password1234",
+            "old_password": "kamarster@gmail.com",
             "password": "wallcare12345"
         }
 
@@ -48,8 +48,8 @@ class TestAuth(unittest.TestCase):
         self.register()
         # 1. test fail when all fields are not provided
         auth1 = {
-            'username': 'victor1',
-            'password': 'password1234'
+            'username': 'daniel1',
+            'password': 'kamarster@gmail.com'
         }
         response1 = self.app_client.post(
             '/api/v2/auth/register',
@@ -67,10 +67,10 @@ class TestAuth(unittest.TestCase):
 
         # 2. test fail when username is taken
         auth2 = {
-            'username': 'victorjambo',
-            'fullname': 'victor jambo',
-            'email': 'victor2.mutai@gmail.com',
-            'password': 'password1234'
+            'username': 'koitoror',
+            'fullname': 'daniel kamar',
+            'email': 'daniel2.kamar@gmail.com',
+            'password': 'kamarster@gmail.com'
         }
         response2 = self.app_client.post(
             '/api/v2/auth/register',
@@ -88,10 +88,10 @@ class TestAuth(unittest.TestCase):
 
         # 3. test fail when email is taken
         auth3 = {
-            'username': 'victor3',
+            'username': 'daniel3',
             'fullname': 'vitor muts',
-            'email': 'victor.mutai@gmail.com',
-            'password': 'password1234'
+            'email': 'kamarster@gmail.com',
+            'password': 'kamarster@gmail.com'
         }
         response3 = self.app_client.post(
             '/api/v2/auth/register',
@@ -108,9 +108,9 @@ class TestAuth(unittest.TestCase):
         # 4. test fail on username validation
         auth4 = {
             'username': 'a',
-            'fullname': 'victor jambo',
-            'email': 'victor4.mutai@gmail.com',
-            'password': 'password1234'
+            'fullname': 'daniel kamar',
+            'email': 'koitoror@gmail.com',
+            'password': 'kamarster@gmail.com'
         }
         response4 = self.app_client.post(
             '/api/v2/auth/register',
@@ -129,8 +129,8 @@ class TestAuth(unittest.TestCase):
         # 5. test fail on email validation
         auth5 = {
             'username': 'abcd',
-            'fullname': 'victor jambo',
-            'email': 'victor.mutai@',
+            'fullname': 'daniel kamar',
+            'email': 'daniel.kamar@',
             'password': 'password1235'
         }
         response5 = self.app_client.post(
@@ -150,8 +150,8 @@ class TestAuth(unittest.TestCase):
         # 6. test fail on password validation
         auth6 = {
             'username': 'abcd',
-            'fullname': 'victor jambo',
-            'email': 'victor6.mutai@gmail.com',
+            'fullname': 'daniel kamar',
+            'email': 'dan.kamar@gmail.com',
             'password': 'password'
         }
         response6 = self.app_client.post(
@@ -190,7 +190,7 @@ class TestAuth(unittest.TestCase):
         self.register()
 
         # 1. test validation
-        login_1 = {'username': 'victor'}
+        login_1 = {'username': 'daniel'}
         new_login_1 = self.app_client.post(
             '/api/v2/auth/login',
             data=json.dumps(login_1),
@@ -202,7 +202,7 @@ class TestAuth(unittest.TestCase):
         # 2. test non-existant user
         login_2 = {
             'username': 'someoneelse',
-            'password': 'password1234'}
+            'password': 'kamarster@gmail.com'}
         new_login_2 = self.app_client.post(
             '/api/v2/auth/login',
             data=json.dumps(login_2),
@@ -215,7 +215,7 @@ class TestAuth(unittest.TestCase):
 
         # 3. test wrong password
         login_3 = {
-            'username': 'victorjambo',
+            'username': 'koitoror',
             'password': 'password'}
         new_login_3 = self.app_client.post(
             '/api/v2/auth/login',
@@ -315,7 +315,7 @@ class TestAuth(unittest.TestCase):
     def test_forgot_password(self):
         """Test when user has forgotten password"""
         self.register()
-        email = {'email': 'victor.mutai@gmail.com'}
+        email = {'email': 'kamarster@gmail.com'}
         response = self.app_client.post(
             '/api/v2/auth/forgot-password',
             data=json.dumps(email),
@@ -326,7 +326,7 @@ class TestAuth(unittest.TestCase):
 
     def test_unsuccessful_forgot_password(self):
         """Test email not found at forgot password"""
-        email = {'email': 'vic_mutai@gmail.com'}
+        email = {'email': 'dan_kamar@gmail.com'}
         response = self.app_client.post(
             '/api/v2/auth/forgot-password',
             data=json.dumps(email),
@@ -339,7 +339,7 @@ class TestAuth(unittest.TestCase):
         """Test activation url"""
         self.register()
         response = self.app_client.get(
-            '/api/v2/auth/verify?key=123&name=victorjambo',
+            '/api/v2/auth/verify?key=123&name=koitoror',
             content_type='application/json'
         )
         self.assertEqual(response.status_code, 301)

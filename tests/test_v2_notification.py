@@ -10,14 +10,14 @@ class TestNotification(unittest.TestCase):
         """
         self.app = app.test_client()
         self.new_user_login = {
-            'username': 'victor',
-            'password': 'password1234'
+            'username': 'daniel',
+            'password': 'kamarster@gmail.com'
         }
         self.new_user_info = {
-            'username': 'victor',
-            'fullname': 'victor jambo',
-            'email': 'victor.mutai@gmail.com',
-            'password': 'password1234'
+            'username': 'daniel',
+            'fullname': 'daniel jambo',
+            'email': 'daniel.kamar@gmail.com',
+            'password': 'kamarster@gmail.com'
         }
 
     def test_get_notification(self):

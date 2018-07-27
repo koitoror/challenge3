@@ -10,14 +10,14 @@ class TestUser(unittest.TestCase):
         app.config.from_object('config.Testing')
         self.app = app.test_client()
         self.new_user_info = {
-            'username': 'victorjambo',
-            'fullname': 'victor jambo',
-            'email': 'victor.mutai@gmail.com',
-            'password': 'password1234'
+            'username': 'koitoror',
+            'fullname': 'daniel jambo',
+            'email': 'daniel.kamar@gmail.com',
+            'password': 'kamarster@gmail.com'
         }
         self.new_user_login = {
-            'username': 'victorjambo',
-            'password': 'password1234'
+            'username': 'koitoror',
+            'password': 'kamarster@gmail.com'
         }
 
     def test_read_all_users(self):

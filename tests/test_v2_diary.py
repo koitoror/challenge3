@@ -25,12 +25,12 @@ class TestDiaryV2(unittest.TestCase):
         self.new_user_info = {
             "username": "robert",
             "fullname": "robert jambo",
-            "email": "victor.mutai@jkuat.comm",
-            "password": "password1234"
+            "email": "daniel.kamar@jkuat.comm",
+            "password": "kamarster@gmail.com"
         }
         self.user_login_info = {
             "username": "robert",
-            "password": "password1234"
+            "password": "kamarster@gmail.com"
         }
 
     def test_read_all_diaries(self):
@@ -134,12 +134,12 @@ class TestDiaryV2(unittest.TestCase):
         new_user = {
             "username": "hotpoint",
             "fullname": "robert hotpoint",
-            "email": "victor.mutai@nbo.samadc.org",
-            "password": "password1234"
+            "email": "daniel.kamar@nbo.samadc.org",
+            "password": "kamarster@gmail.com"
         }
         new_user_login = {
             "username": "hotpoint",
-            "password": "password1234"
+            "password": "kamarster@gmail.com"
         }
         self.app.post(
             '/api/v2/auth/register',
